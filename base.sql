@@ -3,6 +3,11 @@
 -- Created on: 29/09/2010 05:47:32
 -- Diagram Version: 1.0.0
 -- =============================================================================
+
+CREATE DATABASE `database_1`;
+
+USE `database_1`;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- Drop table categories
@@ -109,5 +114,11 @@ CREATE TABLE `detailcommandes` (
     ON UPDATE CASCADE
 )
 ENGINE=INNODB;
+
+INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('admin'));
+INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
+
+CREATE USER 'dbuser'@'%' IDENTIFIED WITH mysql_native_password BY 'dbuser';
+GRANT ALL PRIVILEGES ON *.* TO 'dbuser'@'%' WITH GRANT OPTION;
 
 SET FOREIGN_KEY_CHECKS=1;

@@ -199,14 +199,11 @@ CREATE TABLE `detailcommandes` (
 )
 ENGINE=INNODB;
 
-INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('admin'));
+--INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('admin'));
 INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
 
 INSERT INTO `categories` VALUES (00000000001,'Fruits','You know what fruits are :) ');
 INSERT INTO `categories` VALUES (00000000002,'Vegetables','Hmm...');
 INSERT INTO `categories` VALUES (00000000003,'Spice','An aromatic or pungent vegetable substance used to flavour food');
-
-CREATE USER 'dbuser'@'%' IDENTIFIED WITH mysql_native_password BY 'pWMv2tsRRKy#t@';
-GRANT ALL PRIVILEGES ON *.* TO 'dbuser'@'%' WITH GRANT OPTION;
 
 SET FOREIGN_KEY_CHECKS=1;

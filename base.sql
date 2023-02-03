@@ -91,6 +91,33 @@ CREATE TABLE `produits` (
 )
 ENGINE=INNODB;
 
+-- Drop table detailcommandes
+DROP TABLE IF EXISTS `detailcommandes`;
+
+CREATE TABLE `detailcommandes` (
+  `commande` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `produit` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `quantite` int(11) UNSIGNED NOT NULL,
+  `prix` float(10,2) UNSIGNED NOT NULL,
+  PRIMARY KEY(`commande`, `produit`),
+  CONSTRAINT `Ref_02` FOREIGN KEY (`commande`)
+    REFERENCES `commandes`(`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `Ref_05` FOREIGN KEY (`produit`)
+    REFERENCES `produits`(`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+)
+ENGINE=INNODB;
+
+-- INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('somerandompassword'));
+INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
+
+INSERT INTO `categories` VALUES (1,'Fruits','You know what fruits are :) ');
+INSERT INTO `categories` VALUES (2,'Vegetables','Hmm...');
+INSERT INTO `categories` VALUES (3,'Spice','Used to flavour food');
+
 INSERT INTO produits (id, nom, description, prix, categorie)
 VALUES
 (100, 'Apple', 'A round fruit with a red or green skin', 1, 1),
@@ -178,32 +205,5 @@ VALUES
 (324, 'Dill', 'A sweet and slightly sour herb', 8, 3),
 (325, 'Marjoram', 'A sweet and slightly bitter herb', 9, 3);
 
-
--- Drop table detailcommandes
-DROP TABLE IF EXISTS `detailcommandes`;
-
-CREATE TABLE `detailcommandes` (
-  `commande` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `produit` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `quantite` int(11) UNSIGNED NOT NULL,
-  `prix` float(10,2) UNSIGNED NOT NULL,
-  PRIMARY KEY(`commande`, `produit`),
-  CONSTRAINT `Ref_02` FOREIGN KEY (`commande`)
-    REFERENCES `commandes`(`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `Ref_05` FOREIGN KEY (`produit`)
-    REFERENCES `produits`(`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-)
-ENGINE=INNODB;
-
---INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('somerandompassword'));
-INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
-
-INSERT INTO `categories` VALUES (00000000001,'Fruits','You know what fruits are :) ');
-INSERT INTO `categories` VALUES (00000000002,'Vegetables','Hmm...');
-INSERT INTO `categories` VALUES (00000000003,'Spice','An aromatic or pungent vegetable substance used to flavour food');
 
 SET FOREIGN_KEY_CHECKS=1;

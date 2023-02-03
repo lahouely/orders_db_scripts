@@ -112,7 +112,7 @@ CREATE TABLE `detailcommandes` (
 ENGINE=INNODB;
 
 -- INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('somerandompassword'));
-INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
+INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '1');
 
 INSERT INTO `categories` VALUES (1,'Fruits','You know what fruits are :) ');
 INSERT INTO `categories` VALUES (2,'Vegetables','Hmm...');

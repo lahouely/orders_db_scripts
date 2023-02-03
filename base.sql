@@ -111,12 +111,12 @@ CREATE TABLE `detailcommandes` (
 )
 ENGINE=INNODB;
 
---INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('somerandompassword'));
+-- INSERT INTO `systeme` (`param`, `val`) VALUES ('mdpadmin', MD5('somerandompassword'));
 INSERT INTO `systeme` (`param`, `val`) VALUES ('cv', '0');
 
 INSERT INTO `categories` VALUES (1,'Fruits','You know what fruits are :) ');
 INSERT INTO `categories` VALUES (2,'Vegetables','Hmm...');
-INSERT INTO `categories` VALUES (3,'Spice','An aromatic or pungent vegetable substance used to flavour food');
+INSERT INTO `categories` VALUES (3,'Spice','Used to flavour food');
 
 INSERT INTO produits (id, nom, description, prix, categorie)
 VALUES
